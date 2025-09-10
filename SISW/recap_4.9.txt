@@ -18,14 +18,33 @@ hypervisor
 	je:
 		type 1
 			je nainstalovany na prazdno, bare metal hardware
-			eSXi, hyper-V
+			eSXi, Hyper-V
+				VM, VM, VM,
+				HYPERVIZOR
 		type 2
 			je instalovany na existujucom OS
+						VM, VM, VM
+				APPLICATION, HYPERVIZOR
+				GUEST OS
+			Tu vm=ky vedia ze nieco medzi nim a hardware-om je
+			Vyuzivaju ju najme individualny napr. 
+ 				developery, 
+ 					(je to portable,  bez neakych nakladov a casu setup-ovania)
+				Studenty,
+					(ucit sa, testovať, ziskavať skily bez velkych zaciatočných nákladov)
+				Testovanie,
+					(testovanie aplikácií na danom OS, test v ramci aplikácií kt som vytvoril, alebo skúšanie kódu)
 vHost
 	je to zariadenie na kt je nainstalovany hypervisor
 
 VM/container
 	virtualny host, OS running on vHOst
+	Tiez ma cpu, ram, disk, ale virtual takze vCPU, vRAM, vDISK a na nom je guest OS.
+	on vôbec netuší že medzi nim a hardwarom je HV
+
+Middlewear
+	Je to apka, umožnuje že aplikacie fungujú ako majú napr. java
+	je to softwear kt neni koncova aplikacia ale pomaha hlavnej aplikacii
 
 uplink
 	sietova karta fyzickeho hosta, v praxi kazdy fyz host ma 6-8 sietovych kariet
@@ -58,3 +77,19 @@ Nevýhody virtualizácie:
 	-Väčšie investície (drahšie)
 	-Nie všetký fyzické komponenty môžu byť pripojené na VMky
 	-Nie všetky aplikácie môžu byť pripojené na virtuálne
+
+VM komponents
+	vCPU, vDISK.....
+	quest OS
+	INTEGRATED TOOLS = toto umoznuje nainstalovať ovládače, basically necessity
+ 				  enhace tools
+				  alebo umoznuje aj posielanie prikazov na shutdown a tak
+
+VM files
+	.vmx – config file (kolko ramky a tak)	to a to pod staci na zapnutie masiny
+	.vmdk/-flat.vmdk – disk files
+
+Hyper-V
+	Standard 			1 licencia
+	database unlimited		nekonecno licencii
+	Od 2022 je ich viac a deli sa zu aj podla jeho features danej licencie
